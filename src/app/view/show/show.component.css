@@ -1,0 +1,37 @@
+table {
+    border: 5px solid black;
+}
+  
+  table{
+    width: 100%;
+  }
+  td{
+    font-weight: bold;
+  }
+  th{
+      height:50px;
+      background-color: green;
+  }
+  
+  .search-header{
+    border-radius: 5px;
+    background-color:lightgray;
+    padding: 20px;
+    }
+    .panel{
+        border-radius: 5px;
+    background-color:lightgray;
+    padding: 20px;
+    }
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }

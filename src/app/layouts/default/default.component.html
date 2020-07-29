@@ -1,0 +1,318 @@
+<div>
+<mat-card class = "matdiv">
+ <mat-card-actions class ="example-button-row">
+        <button mat-raised-button (click)="onClickSend()">SEND BY EMAIL</button>
+        <button mat-raised-button (click)="myFunction()">Print</button> 
+        <button mat-raised-button (click)="openDialog()">confirm</button> 
+        <button mat-raised-button>preview</button> 
+        <button mat-raised-button>cancel</button>
+        <button mat-raised-button (click) ="filterdate()" >Search</button>
+</mat-card-actions>
+</mat-card>
+</div>
+<div class = "empty">
+<p>
+</p>
+</div>
+<div class = "formfields">
+    
+    <table >
+        <tr>
+            <th><label class="topic">New</label></th>
+        </tr>
+        <tr>
+           <th>
+<label>Customer</label>
+</th> 
+<th>
+    <select name="customers" id="customers" (change)="OnCustomers($event)">
+        <option value="Customer1">Person 1</option>
+        <option value="Customer2">Person 2</option>
+        <option value="Customer3">Person 3</option>
+        <option value="Customer4">Person 4</option>
+      </select>
+</th>
+<th>
+    <label>Validity</label>
+</th>
+<th>
+    <input type="date" id="birthday" name="birthday" (change)="OnDate($event)">
+</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>
+                <label>Price List</label>
+            </th>
+            <th>
+                <select name="price" id="price" (change)="OnPrice($event)">
+                    <option value="1000">1000</option>
+                    <option value="2000">2000</option>
+                    <option value="3000">3000</option>
+                    <option value="4000">4000</option>
+                  </select>   
+            </th>
+        </tr>
+    <tr>
+        <th></th>
+        <th></th>
+        <th>
+            <label>Payment Terms</label>
+        </th>
+        <th>
+            <select name="method" id="method" (change)="OnPayment($event)">
+                <option value="P">Paytm</option>
+                <option value="A">Amazon</option>
+                <option value="G">Googlepay</option>
+                <option value="I">Internet Banking</option>
+              </select>   
+        </th>
+    </tr>
+    </table>
+
+<div class ="tabs">
+    <mat-tab-group class ="tabgroup">
+        <mat-tab label="Order Lines" class ="gridtab">
+            <mat-grid-list class ="gridlist" cols = "11" rowHeight = "50px">
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Sno
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Product
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Description
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Ordered Quantity
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Unit of Measure
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Analytic Tags
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Unit Price
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Taxes
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Subtotal
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Total
+                </mat-grid-tile>
+                <mat-grid-tile 
+                [colspan] = "1"
+                [rowspan] = "1">Date
+                </mat-grid-tile>
+             </mat-grid-list>
+             <mat-card-actions class ="example-button-row">
+                <button mat-button color= "green" (click)="createGridRow()">Add a product</button>
+                <button mat-button color= "green">Configure a product</button> 
+                <button mat-button color= "green">Add a section</button> 
+                <button mat-button color= "green">Add a note</button> 
+                
+        </mat-card-actions>
+        <mat-grid-list  *ngFor="let gridsize of gridsizes ;let i=count" class ="gridlist" cols = "11" rowHeight = "20px">
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.id}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.product}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.description}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.orderedquantity}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.uom}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.analyticTags}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.unitPrice}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.taxes}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.subtotal}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.total}}
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "1"
+            [rowspan] = "1">{{gridsize.date}}
+            </mat-grid-tile>
+           
+        </mat-grid-list>
+            </mat-tab>
+        <mat-tab label="Optional Products"> Content 2 </mat-tab>
+        <mat-tab label="Other Information"> Content 3 </mat-tab>
+      </mat-tab-group>
+
+<mat-grid-list *ngIf="gridsizes" class ="totalGrid" cols = "20" rowHeight = "50px">
+    <mat-grid-tile #content
+            [colspan] = "1"
+            [rowspan] = "1">Total
+            </mat-grid-tile>
+            <mat-grid-tile 
+            [colspan] = "3"
+            [rowspan] = "1">{{totalval}}
+            </mat-grid-tile>
+
+</mat-grid-list>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <li class = "mat-form-field--inline1">
+<mat-form-field>
+    <label for="cars">Choose a car:</label>
+
+<select name="cars" id="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+</mat-form-field>
+<mat-form-field>
+<label for="dummy1">title for dummy1:</label>
+<input id="dummy1" name="dummy1" value="dummy1">
+</mat-form-field>
+</li>
+<li class = "mat-form-field--inline2">
+    <mat-form-field>
+    <label for="cars">Choose a car:</label>
+
+    <select name="cars" id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+</mat-form-field>
+</li>
+<li class = "mat-form-field--inline3">
+<mat-form-field>
+    <label for="cars">Choose a car:</label>
+
+    <select name="cars" id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+</mat-form-field>
+</li>
+</div> -->

@@ -1,0 +1,114 @@
+<div class="search-header">
+    <form #formname="ngForm">
+        <h3>
+            Author Book List
+
+        </h3>
+        <table>
+            <thead>
+                <td>
+                    <h2>Search panel</h2>
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="onSearch()">Search</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="formname.reset()">Clear</button>
+                </td>
+            </thead>
+            <tr>
+                <td>Author Name</td>
+                <td>
+                    <select name="author" id="author" (change)="OnAuthor($event)" [(ngModel)]="selectedAuthor">
+                        <option *ngFor="let author of authorValue | async" value={{author}}>
+                            {{author}}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Book Name
+                </td>
+                <td>
+                    <select name="book" id="book" (change)="OnBook($event)" [(ngModel)]="selectedBook">
+                        <option *ngFor="let book of bookValue | async" value={{book}}>
+                            {{book}}
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Price
+                    <select name="range" id="range" (change)="OnValue($event)" [(ngModel)]="selectedValue">
+                        <option value="0">Equal to</option>
+                        <option value="1">Smaller than</option>
+                        <option value="2">Greater than</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="price" id="price" name="range" [(ngModel)]="selectedPrice">
+                </td>
+                <td>
+                    Created Date
+                </td>
+                <td>
+                    <input type="date" id="cdate" name="cdate" (change)="OnCdate($event)" [(ngModel)]="selectedCDate">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Published Date
+                </td>
+                <td>
+                    <input type="date" id="pdate" name="pdate" (change)="OnPdate($event)" [(ngModel)]="selectedPDate">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div>
+    <p>
+
+    </p>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Author List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Author Name</th>
+                    <th>Book Name</th>
+                    <th>Price</th>
+                    <th>Created Date</th>
+                    <th>Published Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let authorBook of authorBooks | async">
+                    <td>{{authorBook.authorname}}</td>
+                    <td>{{authorBook.bookname}}</td>
+                    <td>{{authorBook.price}}</td>
+                    <td>{{authorBook.createddate}}</td>
+                    <td>{{authorBook.publishdate}}</td>
+                    <td><button (click)="deleteEmployee(authorBook.id)" class="btn btn-danger">Delete</button>
+                        <button (click)="viewDetails(authorBook.id)" class="btn btn-info"
+                            style="margin-left: 10px">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

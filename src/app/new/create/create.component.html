@@ -1,0 +1,47 @@
+<h3>Create Author Book Database</h3>
+<div class="split left">
+  <div class="centered">
+<div class = "formbook" [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name of Author</label>
+      <input type="text" class="form-control" id="authorname" [(ngModel)]="authorBooks.authorname" 
+        name="authorname" required>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name of Book</label>
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="authorBooks.bookname"  name="lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Price</label>
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="authorBooks.price"  name="emailId">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Created Date</label>
+        <input type="date" class="form-control" id="emailId" required [(ngModel)]="authorBooks.createddate" name="emailId">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Published date</label>
+        <input type="date" class="form-control" id="emailId" required [(ngModel)]="authorBooks.publishdate" name="emailId">
+      </div>
+
+    <button type="submit"  class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>
+</div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3a/Wings_of_Fire_by_A_P_J_Abdul_Kalam_Book_Cover.jpg" alt="Avatar man">
+    </div>
+    </div>

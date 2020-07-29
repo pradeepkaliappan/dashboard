@@ -1,0 +1,46 @@
+<div class ="details" *ngFor = "let author of authorBook">
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" (click)="previousData()">Previous</a></li>
+      <li class="page-item" aria-current="page"><a class="page-link" href="#">{{author.id}}</a></li>
+      <li class="page-item"><a class="page-link" (click)="nextData()">Next</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+      <table>
+          <tr>
+              <td>Author Name:</td>
+              <td>{{author.authorname}}</td>
+          </tr>
+          <tr>
+            <td>Book Name:</td>
+            <td>{{author.bookname}}</td>
+        </tr>
+        <tr>
+            <td>Created Date:</td>
+            <td>{{author.createddate}}</td>
+        </tr>
+        <tr>
+            <td>Published Date:</td>
+            <td>{{author.publisheddate}}</td>
+        </tr>
+        <tr>
+            <td>Published Date:</td>
+            <td>{{author.price}}</td>
+        </tr>
+
+      </table>
+  </div>
+  <div>
+      <img src="https://www.rd.com/wp-content/uploads/2017/10/This-Is-How-Long-It-Takes-To-Read-The-Whole-Dictionary_509582812-Billion-Photos_FB-e1574101045824.jpg" width="40%" height = "200%">
+  </div>

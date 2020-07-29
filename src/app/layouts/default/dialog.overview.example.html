@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Given Parameters</h2>
+
+<div>
+    <table>
+        <tr> 
+        <th>
+            <label>Customer Name</label>
+        </th>
+        <th>
+            <label>{{customername}}</label>
+        </th>
+    </tr>
+    <tr> 
+        <th>
+            <label>Date:</label>
+        </th>
+        <th>
+            <label>{{validitydate}}</label>
+        </th>
+    </tr>
+    <tr> 
+        <th>
+            <label>Payment:</label>
+        </th>
+        <th>
+            <label>{{payment}}</label>
+        </th>
+    </tr>
+    <tr> 
+        <th>
+            <label>Price:</label>
+        </th>
+        <th>
+            <label>{{price}}</label>
+        </th>
+    </tr>
+    </table>
+</div>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+</mat-dialog-actions>
